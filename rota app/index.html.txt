@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duty Cycle Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        // Tailwind config for a clean, Material-like feel (Keep this here for Tailwind to work immediately)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4285F4', // Google Blue
+                        secondary: '#34A853', // Google Green
+                        surface: '#FFFFFF',
+                        background: '#F0F4F9', // Light, airy background
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="p-4 flex flex-col items-center justify-center">
+
+    <div class="w-full max-w-md bg-surface shadow-2xl rounded-3xl p-6 md:p-8 space-y-6 border border-gray-100">
+
+        <header class="text-center space-y-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-primary">
+                <rect width="8" height="8" x="3" y="3" rx="2"></rect>
+                <path d="M7 11v11"></path>
+                <path d="M17 11v11"></path>
+                <rect width="8" height="8" x="13" y="3" rx="2"></rect>
+                <path d="M10 17h4"></path>
+            </svg>
+            <h1 class="text-3xl font-extrabold text-gray-900">21/21 Cycle Planner</h1>
+            <p class="text-gray-500">Enter your current IN date to map the next duty cycle.</p>
+        </header>
+
+        <div class="space-y-4">
+            <label for="inDate" class="block text-sm font-medium text-gray-700">Select Current IN Date</label>
+            <input type="date" id="inDate" required
+                   class="w-full p-4 border border-gray-300 rounded-xl shadow-inner text-lg focus:ring-primary focus:border-primary transition duration-150 ease-in-out">
+
+            <button onclick="calc()"
+                    class="w-full p-4 text-lg font-bold text-white bg-primary rounded-xl shadow-lg hover:bg-primary/90 transition transform hover:-translate-y-0.5 active:bg-primary-dark focus:outline-none focus:ring-4 focus:ring-primary/50">
+                Calculate Cycle
+            </button>
+        </div>
+
+        <div id="out" class="space-y-4 pt-4">
+            <div class="bg-gray-50 p-5 rounded-2xl border border-gray-200 text-center">
+                <p class="text-gray-500 font-medium">Results will appear here</p>
+            </div>
+        </div>
+
+        <div id="errorBox" class="hidden bg-red-50 border-l-4 border-red-500 text-red-700 p-4 rounded-lg" role="alert">
+            <p class="font-bold">Invalid Date</p>
+            <p>Please select a valid start date to perform the calculation.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

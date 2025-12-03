@@ -1,0 +1,18 @@
+/* style.css */
+
+/* Ensure the body takes full viewport height and uses the chosen background */
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    /* Uses the background color defined in the Tailwind config */
+    background-color: #F0F4F9; 
+}
+/* Custom styles for better date input aesthetics */
+input[type="date"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    line-height: 1.5;
+    text-align: center;
+}
